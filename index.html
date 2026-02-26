@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODS 9 - Industria, Innovación e Infraestructura</title>
+    <style>
+        /* REQUISITO: Variables de diseño y estilos globales */
+        :root {
+            --color-ods: #f39200; 
+            --color-borde: #d17900;
+            --color-fondo-cont: #ffffff;
+            --color-fondo-body: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Envoltura principal para optimizar el espacio visual */
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* REQUISITO: Todos los contenedores con Fondo, Borde, Padding y Margen */
+        .contenedor {
+            background-color: var(--color-fondo-cont);
+            border: 3px solid var(--color-borde);
+            padding: 25px;                            
+            margin-bottom: 25px;                      
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        h1, h2, h3 {
+            color: #b36b00;
+            margin-top: 0;
+            border-bottom: 2px solid #fff3e0;
+            padding-bottom: 10px;
+        }
+
+        /* REQUISITO: Menú con 5 enlaces (4 internos + 1 a otra página) */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            background-color: var(--color-ods);
+            padding: 10px 20px;
+            border-radius: 30px; 
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+
+        /* Estilos de imágenes */
+        .img-principal {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+
+        .img-intercalada {
+            width: 35%;
+            min-width: 220px;
+            margin: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .img-izquierda { float: left; margin-right: 25px; }
+        .img-derecha { float: right; margin-left: 25px; }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Listas y links */
+        ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        ul li {
+            background: #fff8f0;
+            padding: 12px;
+            border-left: 4px solid var(--color-ods);
+            border-radius: 4px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #d17900;
+            font-weight: 600;
+        }
+
+        /* Contenedor de Vídeo */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Botón de descarga */
+        .btn-descarga {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 28px;
+            background-color: var(--color-borde);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-descarga:hover {
+            background-color: #b36b00;
+            transform: scale(1.05);
+        }
+
+        /* Simulación de navegación */
+        .pagina { display: none; }
+        .activa { display: block; }
+
+        .btn-cambio-pag {
+            background-color: #444 !important;
+        }
+
+        @media (max-width: 768px) {
+            .img-intercalada { width: 100%; float: none; margin: 15px 0; }
+            ul { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <script>
+            function navegar(id) {
+                document.querySelectorAll('.pagina').forEach(p => p.classList.remove('activa'));
+                document.getElementById(id).classList.add('activa');
+                window.scrollTo(0,0);
+            }
+        </script>
+
+        <!-- ================= PÁGINA INDEX ================= -->
+        <div id="index" class="pagina activa">
+            
+            <div class="contenedor">
+                <nav>
+                    <a href="#idx-e1">Inicio</a>
+                    <a href="#idx-e2">Metas ODS</a>
+                    <a href="#idx-e3">Saber más</a>
+                    <a href="#idx-e4">Infografía</a>
+                    <a href="#" onclick="navegar('secundaria')" class="btn-cambio-pag">Ir a Secundaria</a>
+                </nav>
+            </div>
+
+            <div id="idx-e1" class="contenedor">
+                <h1>Introducción al ODS 9</h1>
+                <p>El noveno objetivo de desarrollo sostenible busca modernizar la infraestructura y rehabilitar las industrias para que sean sostenibles, promoviendo la innovación tecnológica.</p>
+                <img src="https://recla.org/wp-content/uploads/2024/10/ODS-9.webp" alt="Logotipo ODS 9" class="img-principal">
+            </div>
+
+            <div id="idx-e2" class="contenedor clearfix">
+                <h2>Metas y Objetivos Principales</h2>
+                <p>Para lograr el desarrollo sostenible es esencial apoyar a los países menos adelantados e invertir en infraestructuras resilientes que conecten comunidades.</p>
+                
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=500" alt="Infraestructura" class="img-intercalada img-izquierda">
+                
+                <h3>Fomento de la Infraestructura</h3>
+                <p>Se busca desarrollar infraestructuras fiables, sostenibles y de calidad para apoyar el desarrollo económico y el bienestar de las personas en todo el mundo.</p>
+                
+                <h3>Industrialización Sostenible</h3>
+                <p>El objetivo es aumentar significativamente la contribución de la industria al empleo y al producto interno bruto para el año 2030.</p>
+                
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=500" alt="Innovación" class="img-intercalada img-derecha">
+                
+                <h3>Investigación e Innovación</h3>
+                <p>Fomentar la innovación y aumentar considerablemente el número de personas que trabajan en investigación y desarrollo industrial.</p>
+            </div>
+
+            <div id="idx-e3" class="contenedor">
+                <h2>Recursos para aprender más</h2>
+                <ul>
+                    <li><a href="https://www.un.org/sustainabledevelopment/es/infrastructure/" target="_blank">Naciones Unidas - ODS 9</a></li>
+                    <li><a href="https://www.undp.org/es/sustainable-development-goals/industria-innovacion-infraestructura" target="_blank">PNUD - Agenda 2030</a></li>
+                    <li><a href="https://www.unicef.es/educa/blog/derechos-e-innovacion" target="_blank">UNICEF - Innovación</a></li>
+                </ul>
+            </div>
+
+            <div id="idx-e4" class="contenedor" style="text-align: center;">
+                <h2>Infografía del Objetivo</h2>
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/sites/3/2024/01/2309739_S_SDG_2023_infographics_9-9-600x800.jpg" alt="Infografía ODS 9" class="img-principal">
+                
+                <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/sites/3/2024/01/2309739_S_SDG_2023_infographics_9-9-600x800.jpg" 
+                download="infografia-ods9.jpg" 
+                target="_blank" 
+                class="btn-descarga">
+                Descargar Infografía
+                </a>
+            </div>
+        </div>
+
+        <!-- ================= PÁGINA SECUNDARIA ================= -->
+        <div id="secundaria" class="pagina">
+            
+            <div class="contenedor">
+                <nav>
+                    <a href="#sec-e1">Estadísticas</a>
+                    <a href="#sec-e2">Desafíos</a>
+                    <a href="#sec-e3">Noticias</a>
+                    <a href="#sec-e4">Multimedia</a>
+                    <a href="#" onclick="navegar('index')" class="btn-cambio-pag">Ir a Inicio</a>
+                </nav>
+            </div>
+
+            <div id="sec-e1" class="contenedor clearfix">
+                <h2>Panorama Global de la Industrialización</h2>
+                <p>La industria manufacturera mundial ha experimentado una recuperación desigual tras los retos económicos recientes. En 2022, el crecimiento de la manufactura global se ralentizó hasta el 3,3%, bajando notablemente respecto al 7,4% registrado en 2021.</p>
+                
+                <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=800" alt="Estadísticas Industriales" class="img-intercalada img-izquierda">
+                
+                <h3>Investigación y Desarrollo (I+D)</h3>
+                <p>El compromiso con la innovación es más fuerte que nunca. El gasto mundial en investigación y desarrollo como proporción del PIB aumentó del 1,69% en 2015 al 1,93% en 2020. Este crecimiento es clave para crear soluciones tecnológicas sostenibles.</p>
+                
+                <h3>El Capital Humano en Innovación</h3>
+                <p>El número de investigadores por cada millón de habitantes ha crecido en todo el mundo. Pasamos de 1022 investigadores en 2010 a 1342 en 2020, lo que demuestra un esfuerzo global por fortalecer la capacidad técnica y científica.</p>
+                
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=500" alt="Investigadores ODS" class="img-intercalada img-derecha">
+                
+                <h3>Apoyo a Países en Desarrollo</h3>
+                <p>El Objetivo 9 también subraya la importancia de aumentar el acceso de las pequeñas industrias de los países en desarrollo a los servicios financieros, incluidos créditos asequibles, para integrarlas en las cadenas de valor mundiales.</p>
+                
+                <p>A pesar de los avances, los países menos adelantados aún enfrentan barreras significativas para duplicar la cuota de la industria manufacturera en su PIB para 2030, una meta crítica para erradicar la pobreza.</p>
+            </div>
+
+            <div id="sec-e2" class="contenedor clearfix">
+                <h2>La Realidad de la Banda Ancha Móvil</h2>
+                <p>La conectividad digital es hoy un derecho fundamental. En 2022, el 95% de la población mundial ya tenía acceso a una red de banda ancha móvil (3G o superior).</p>
+                
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=400" alt="Conectividad" class="img-intercalada img-izquierda">
+                
+                <h3>El Desafío de la Cobertura Universal</h3>
+                <p>Aunque las cifras globales son altas, en África Subsahariana la cobertura real sigue siendo del 82%, y en Oceanía del 68%. La falta de infraestructura impide el acceso equitativo a la educación y la salud digital.</p>
+                
+                <h2>Impacto Ambiental: Emisiones de CO<sub>2</sub></h2>
+                <p>La industrialización debe ser limpia. Sin embargo, las emisiones de CO<sub>2</sub> industriales aumentaron un 0,9% en 2022, alcanzando las 36.800 millones de toneladas.</p>
+                
+                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=400" alt="Industria Limpia" class="img-intercalada img-derecha">
+                
+                <h3>Hacia una Industria Sostenible</h3>
+                <p>El gran reto del ODS 9 es desacoplar el crecimiento económico del daño ambiental. La adopción de energías renovables es el único camino para frenar el cambio climático y cumplir con la agenda 2030.</p>
+            </div>
+
+            <div id="sec-e3" class="contenedor">
+                <h2>Noticias de Actualidad</h2>
+                <ul>
+                    <li><a href="https://news.un.org/es/tags/industria" target="_blank">ONU Noticias - Industria</a></li>
+                    <li><a href="https://elpais.com/planeta-futuro/" target="_blank">El País - Planeta Futuro</a></li>
+                    <li><a href="https://efe.com/andalucia/el-ecosistema-de-innovacion-pisa-el-acelerador-para-elevar-el-papel-tecnologico-de-espana/" target="_blank">EFE Verde - Innovación</a></li>
+                </ul>
+            </div>
+
+            <!-- ELEMENTO 4 SECUNDARIA: VÍDEO -->
+            <div id="sec-e4" class="contenedor">
+                <h2>Vídeo: El Futuro de la Industria</h2>
+                <div class="video-container">
+                    <!-- Vídeo corregido: quitado typo hhttps y usado formato /embed/ -->
+                    <iframe src="https://www.youtube.com/embed/2xparLO41zQ" title="ODS 9 Video" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
